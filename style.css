@@ -1,0 +1,38 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/* for cow */
+
+.cow-button {
+    width: 100px;
+    margin: 10px;
+}
+
+.cow-button > img {
+    width: 100%;
+}
+
+/* containers */
+
+.flex{
+    display: flex;
+    gap: 5px;
+    margin: 15px ;
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+/* bottle counter */
+#bottle-counter{
+    padding-right: 10px;
+}
+
+/* text */
+.green-text{
+    color: green
+}
+
