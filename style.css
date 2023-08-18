@@ -26,6 +26,10 @@
     visibility: hidden;
 }
 
+.affordable{
+    visibility: visible;
+}
+
 /* bottle counter */
 #bottle-counter{
     padding-right: 10px;
