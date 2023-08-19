@@ -6,7 +6,7 @@ const bottleCounter = document.querySelector("#bottle-counter");
 const sellMilk = document.querySelector("#sell-milk");
 const cashCount = document.querySelector("#cash-counter");
 const hireWorker = document.querySelector("#hire-worker");
-const worker = document.querySelector("#workers");
+const workerDiv = document.querySelector("#workers");
 
 let milkBottles = 0;
 let cash = 0;
@@ -85,6 +85,19 @@ const render = () => {
         render();
       });
       hireWorker.appendChild(button);
+    }
+
+    if (producer.count) {
+      const icon = document.querySelector("#workers i");
+      const workerCounter = document.querySelector(
+        "#workers span:nth-child(2)"
+      );
+      const workerRate = document.querySelector("#workers span:nth-child(3)");
+      workerDiv.classList.remove("hidden");
+      icon.classList.add(`${producer.icon}`);
+      workerCounter.textContent = `${producer.count}`;
+      workerRate.textContent = `+${producer.rate.toFixed(2)} bottles/sec`;
+      render();
     }
   }
   //hides sell milk div
