@@ -6,7 +6,7 @@ const bottleCounter = document.querySelector("#bottle-counter");
 const sellMilk = document.querySelector("#sell-milk");
 const cashCount = document.querySelector("#cash-counter");
 const hireWorker = document.querySelector("#hire-worker");
-const workerDiv = document.querySelector("#workers");
+const workerContainer = document.querySelector("#worker-container");
 
 let milkBottles = 0;
 let cash = 0;
@@ -23,7 +23,8 @@ const milkCorp = [
   {
     id: 2,
     name: "buy an extra cow",
-    cost: 40,
+    // cost: 40,
+    cost: 7,
     rate: 2,
     count: 0,
     icon: "fa-cow",
@@ -69,7 +70,6 @@ const render = () => {
   sellMilk.textContent = `Sell Milk  +$${(milkBottles / 2).toFixed(2)}`;
   cashCount.textContent = `+$${cash.toFixed(2)}`;
   //clears hireEmployee button content. Instead of writing
-  // hireEmployee.innerHTML =''
   hireWorker.replaceChildren();
 
   // for of loop checking arr
@@ -86,19 +86,8 @@ const render = () => {
       });
       hireWorker.appendChild(button);
     }
-
-    if (producer.count) {
-      const icon = document.querySelector("#workers i");
-      const workerCounter = document.querySelector(
-        "#workers span:nth-child(2)"
-      );
-      const workerRate = document.querySelector("#workers span:nth-child(3)");
-      icon.classList.add(`${producer.icon}`);
-      workerCounter.textContent = `${producer.count}`;
-      workerRate.textContent = `+${producer.rate * producer.count}bottles/sec`;
-      workerDiv.classList.remove("hidden");
-    }
   }
+
   //hides sell milk div
   if (milkBottles === 0) {
     sellMilk.classList.add("hidden");
@@ -106,6 +95,23 @@ const render = () => {
     sellMilk.classList.remove("hidden");
   }
 };
+
+const workerDiv = document.createElement("div");
+
+if (producer.count) {
+  const existingWorkerDiv = document.querySelector(".workerDiv");
+
+  if (!existingWorkerDiv) {
+    const i = document.createElement("i");
+    i.classList.add("fa-solid", producer.icon);
+
+    const workerDiv = document.createElement("div");
+    workerDiv.classList.add("workerDiv");
+    workerDiv.appendChild(i);
+
+    workerContainer.appendChild(workerDiv);
+  }
+}
 
 //cow button
 cowButton.addEventListener("click", () => {
@@ -123,11 +129,11 @@ sellMilk.addEventListener("click", () => {
   render();
 });
 
-setInterval(() => {
-  for (let producer of milkCorp) {
-    milkBottles += producer.count * producer.rate;
-  }
-  render();
-}, 1000);
+// setInterval(() => {
+//   for (let producer of milkCorp) {
+//     milkBottles += producer.count * producer.rate;
+//   }
+//   render();
+// }, 1000);
 
 render();
