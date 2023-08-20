@@ -20,6 +20,8 @@ body{
 }
 
 h1{
+    font-family: 'Oleo Script', cursive;
+    letter-spacing: 1px;
     padding-top: 8px;
     font-size: 4em;
     color: white;
