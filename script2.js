@@ -30,7 +30,8 @@ const milkProducer = {
   farm: {
     id: "farm",
     name: "buy another farm",
-    cost: 150,
+    // cost: 150,
+    cost: 10,
     rate: 10,
     count: 0,
     icon: "fa-tractor",
@@ -38,7 +39,8 @@ const milkProducer = {
   ceo: {
     id: "ceo",
     name: "become the CEO of Big Milk",
-    cost: 1000,
+    // cost: 1000,
+    cost: 12,
     rate: 100,
     count: 0,
     icon: "fa-building",
@@ -46,7 +48,8 @@ const milkProducer = {
   planet: {
     id: "planet",
     name: "buy Cow Planet",
-    cost: 50000,
+    // cost: 50000,
+    cost: 15,
     rate: 1000,
     count: 0,
     icon: "fa-earth-oceania",
@@ -85,7 +88,13 @@ const selectBtnElement = (producerId) =>
 // // //create and select event listeners for button
 const setOnClickEvent = (btnElement, producerId) => {
   btnElement.addEventListener("click", () => {
-    //adds count to worker
+    if (cash >= milkProducer[producerId].cost) {
+      console.log(cash >= milkProducer[producerId].cost);
+      cash -= milkProducer[producerId].cost;
+      //adds count to worker
+      milkProducer[producerId].count += 1;
+      renderAmountsAndButtons();
+    }
   });
 };
 
