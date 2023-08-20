@@ -13,22 +13,29 @@
     <!-- <script defer src="script2.js"></script> -->
   </head>
   <body>
-    <h1>Milkman</h1>
-    <div id="cow" class="cow-button">
-      <img src="./img/cute-cow.png" alt="cow" />
-    </div>
+    <div class="main-container flex">
+      <h1>Milkman</h1>
+      <div id="cow" class="cow-button">
+        <img src="./img/cute-cow.png" alt="cow" />
+      </div>
 
-    <div id="bottle-container" class="flex">
-      <i class="fa-solid fa-bottle-droplet"></i>
-      <p id="bottle-counter"></p>
-      <button id="sell-milk" class="hidden green-text">Sell Milk</button>
-    </div>
+      <div id="bottle-container" class="row">
+        <div>
+          <img class="iconify" src="./img/milk-png.png" alt="milk" />
+        </div>
+        <!-- <i class="fa-solid fa-bottle-droplet"></i> -->
+        <p id="bottle-counter"></p>
+        <button id="sell-milk" class="hidden green-text">Sell Milk</button>
+      </div>
 
-    <div id="cash-container" class="flex">
-      <i class="fa-solid fa-money-bill"></i>
-      <p id="cash-counter" class="green-text"></p>
+      <div id="cash-container" class="row margin">
+        <div>
+          <img class="iconify" src="./img/money.svg" alt="money" />
+        </div>
+        <p id="cash-counter" class="bold"></p>
+      </div>
+      <div id="hire-container" class="wrap"></div>
+      <div id="worker-container" class="flex"></div>
     </div>
-    <div id="hire-container"></div>
-    <div id="worker-container"></div>
   </body>
 </html>

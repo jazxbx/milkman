@@ -122,6 +122,7 @@ const render = () => {
       icon.classList.add("fa-solid", producer.icon);
       console.log(producer.icon);
       const milkProducerCount = document.createElement("span");
+      milkProducerCount.classList.add("text-2");
       milkProducerCount.textContent = producer.count;
       const milkProducerRate = document.createElement("span");
       milkProducerRate.textContent =
@@ -135,11 +136,11 @@ const render = () => {
   }
 };
 
-setInterval(() => {
-  for (let producer of milkProducers) {
-    milkBottles += producer.count * producer.rate;
-  }
-  render();
-}, 1000);
+// setInterval(() => {
+//   for (let producer of milkProducers) {
+//     milkBottles += producer.count * producer.rate;
+//   }
+//   render();
+// }, 1000);
 
 render();
