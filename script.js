@@ -15,7 +15,7 @@ const milkCorp = [
   {
     id: 1,
     name: "hire a worker",
-    cost: 25,
+    cost: 5,
     rate: 1,
     count: 0,
     icon: "fa-person",
@@ -93,11 +93,10 @@ const render = () => {
         "#workers span:nth-child(2)"
       );
       const workerRate = document.querySelector("#workers span:nth-child(3)");
-      workerDiv.classList.remove("hidden");
       icon.classList.add(`${producer.icon}`);
       workerCounter.textContent = `${producer.count}`;
-      workerRate.textContent = `+${producer.rate.toFixed(2)} bottles/sec`;
-      render();
+      workerRate.textContent = `+${producer.rate * producer.count}bottles/sec`;
+      workerDiv.classList.remove("hidden");
     }
   }
   //hides sell milk div
@@ -123,5 +122,12 @@ sellMilk.addEventListener("click", () => {
   milkBottles = 0;
   render();
 });
+
+setInterval(() => {
+  for (let producer of milkCorp) {
+    milkBottles += producer.count * producer.rate;
+  }
+  render();
+}, 1000);
 
 render();
