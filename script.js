@@ -136,11 +136,11 @@ const render = () => {
   }
 };
 
-// setInterval(() => {
-//   for (let producer of milkProducers) {
-//     milkBottles += producer.count * producer.rate;
-//   }
-//   render();
-// }, 1000);
+setInterval(() => {
+  for (let producer of milkProducers) {
+    milkBottles += producer.count * producer.rate;
+  }
+  render();
+}, 1000);
 
 render();
